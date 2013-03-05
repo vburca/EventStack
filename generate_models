@@ -1,0 +1,5 @@
+rails generate scaffold user nickname:string first_name:string last_name:string date_of_birth:date sex:string major:string
+rails generate scaffold event name:string description:string start_datetime:datetime end_datetime:datetime location:string food_provided:boolean creator:references
+rails generate scaffold comment text:string user:references event:references
+rails generate scaffold interest name:string
+rails generate scaffold major name:string

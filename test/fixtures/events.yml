@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  start_datetime: 2013-03-04 22:58:00
+  end_datetime: 2013-03-04 22:58:00
+  location: MyString
+  food_provided: false
+  user: 
+
+two:
+  name: MyString
+  description: MyString
+  start_datetime: 2013-03-04 22:58:00
+  end_datetime: 2013-03-04 22:58:00
+  location: MyString
+  food_provided: false
+  user: 
