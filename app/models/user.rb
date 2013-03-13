@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :majors
 
-  attr_accessible :date_of_birth, :first_name, :last_name, :major, :nickname, :sex
+  attr_accessible :date_of_birth, :first_name, :last_name, :nickname, :sex
 
   # VALIDATIONS
 
