@@ -21,3 +21,11 @@ doc/
 .project
 .DS_Store
 .idea
+
+# Ignore archives
+*.tar
+
+# Ignore generate files
+generate_custom_migrations
+generate_models
+

@@ -1,5 +1,0 @@
-rails g migration CreateEventUser
-rails g migration CreateEventInterest
-rails g migration CreateEventMajor
-rails g migration CreateInterestUser
-rails g migration CreateMajorUser

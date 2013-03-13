@@ -2,12 +2,6 @@ EventStack::Application.routes.draw do
   resources :majors
 
 
-  resources :interests
-
-
-  resources :comments
-
-
   resources :events
 
 
