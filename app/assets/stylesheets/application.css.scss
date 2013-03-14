@@ -1,0 +1,133 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+* {
+  background: url(trincoll_day_splash.jpg) no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+#user_nav {
+  width:  auto;
+  float: right;
+  margin: 0 0 5em 0;
+  height: 30px;
+  padding: 0;
+  background-color: yellow;
+  opacity: 0.7;
+  list-style: none;
+
+  li {
+    display: block;
+    float: left;
+    color: yellow;
+    padding: 8px 10px;
+    font-weight: bold;
+  }
+
+  a { 
+    display: block;
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: #c00;
+  }
+}
+
+.logins { 
+  position: fixed;
+  top:  50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left:  280px;
+  
+  h2 {
+    font-size: 40px;
+    font-family: Century Gothic, sans-serif;
+  }
+
+  div { 
+    color: #333333;
+    font-style: italic;
+    font-size: 15px;
+    font-family: Century Gothic, sans-serif;
+  }
+
+  input {
+      border: 2px solid white; 
+      -webkit-box-shadow: 
+        inset 0 0 8px  rgba(0,0,0,0.1),
+              0 0 16px rgba(0,0,0,0.1); 
+      -moz-box-shadow: 
+        inset 0 0 8px  rgba(0,0,0,0.1),
+              0 0 16px rgba(0,0,0,0.1); 
+      box-shadow: 
+        inset 0 0 8px  rgba(0,0,0,0.1),
+              0 0 16px rgba(0,0,0,0.1); 
+      padding: 7px;
+      background: rgba(255,255,255,0.5);
+      margin: 0 0 10px 0;
+  }
+
+}
+
+.banner {
+  float: left;
+  margin: 0em 3em 0 1.5em;
+  font-style: italic;
+  font-size: 30px;
+  font-family: Century Gothic, sans-serif;
+
+  a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0.7;
+    font-size: 40px;
+    font-family: Century Gothic, sans-serif;
+  }
+
+  a:hover {
+    color: #c00;
+  }
+}
+
+/*
+.transp_box {
+  width: auto;
+  margin-left:  10px;
+  margin-top: 25px;
+  background: #ffffff;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity:  0.5;
+  -khtml-opacity: 0.5;
+
+  * {
+    position: relative;
+  }
+
+  div {
+    padding: 10px;
+    color: #000;
+  }    
+}
+*/

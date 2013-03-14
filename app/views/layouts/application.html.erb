@@ -8,15 +8,19 @@
 </head>
 <body>
 
-  <div id="user_nav">
-    <% if user_signed_in? %>
-      Hi there, <%= current_user.first_name %> | 
-        <%= link_to "Sign Out", destroy_user_session_path %>
-    <% else %>
-      <%= link_to "Come on in!", new_user_session_path %> | 
-      <%= link_to "Want to join?", new_user_registration_path %> 
-    <% end %>
-  </div>
+    <div class="banner">
+      <%= link_to "EventStack", root_path %>
+    </div>
+
+    <ul id="user_nav">
+      <% if user_signed_in? %>
+        <li> Hi there, <%= link_to "#{current_user.first_name}", user_path(current_user.id) %> </li>
+        <li> <%= link_to "Sign Out", destroy_user_session_path %> </li>
+      <% else %>
+        <li> <%= link_to "Come on in!", new_user_session_path %> </li>
+        <li> <%= link_to "Want to join?", new_user_registration_path %> </li>
+      <% end %>
+    </ul>
 
 <%= yield %>
 
