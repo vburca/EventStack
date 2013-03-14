@@ -1,4 +1,7 @@
 class MajorsController < ApplicationController
+  # TODO: consider using CanCan for roles!
+  before_filter :authenticate_user!
+
   # GET /majors
   # GET /majors.json
   def index
