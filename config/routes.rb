@@ -1,15 +1,14 @@
 EventStack::Application.routes.draw do
+  devise_for :users, :path_names => { :sign_up => "register" }
+
   get "home/index"
-
-  get "welcome/welcome"
-
-  resources :majors
-
-
-  resources :events
 
 
   resources :users
+
+  resources :majors
+
+  resources :events
 
 
   # The priority is based upon order of creation:

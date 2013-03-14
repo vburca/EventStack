@@ -1,16 +1,12 @@
 class Event < ActiveRecord::Base
 
   # ASSOCIATIONS
-
   belongs_to :creator, class_name: 'User', inverse_of: :created_events
-
   has_and_belongs_to_many :voters, class_name: 'User', join_table: :votes, foreign_key: :voted_event_id, association_foreign_key: :voter_id
   has_and_belongs_to_many :majors
-
   attr_accessible :description, :end_datetime, :food_provided, :location, :name, :start_datetime
 
   # VALIDATIONS
-
   validates :name, presence: true, allow_blank: false, length: { maximum: 100 }
   validates :description, presence: true, allow_blank: false, length: { maximum: 800 }
 

@@ -2,12 +2,11 @@
 
 <table>
   <tr>
-    <th>Nickname</th>
+    <th>Username</th>
     <th>First name</th>
     <th>Last name</th>
     <th>Date of birth</th>
     <th>Sex</th>
-    <th>Major</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,12 +14,11 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.nickname %></td>
+    <td><%= user.username %></td>
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
     <td><%= user.date_of_birth %></td>
     <td><%= user.sex %></td>
-    <td><%= user.major %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
