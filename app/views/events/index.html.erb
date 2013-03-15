@@ -22,7 +22,7 @@
     <td><%= event.end_datetime %></td>
     <td><%= event.location %></td>
     <td><%= event.food_provided %></td>
-    <td><%= event.user %></td>
+    <td><%= event.creator.username %></td>
     <td><%= link_to 'Show', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

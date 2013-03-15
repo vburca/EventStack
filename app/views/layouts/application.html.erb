@@ -21,6 +21,10 @@
           <li> <%= link_to "Events", events_path %> </li>
           <li class="separator"></li>
           <li> <%= link_to "Users", users_path %> </li>
+          <% if current_user.admin? %>
+            <li class="separator"></li>
+            <li> <%= link_to "Majors", majors_path %> </li>
+          <% end %>
         </ul>
       <% end %>
 

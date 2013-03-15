@@ -43,6 +43,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
+    @event.creator = current_user
 
     respond_to do |format|
       if @event.save
