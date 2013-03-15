@@ -31,13 +31,15 @@ body {
   border-bottom: 1px;
   border-bottom-color: #000000;
   border-bottom-style: solid;
+  margin: 0 auto;
+  min-width: 900px;
 
   #title {
-
+/*
     span { 
       color: #1161bc;
     }
-
+*/
     a {
       font-family: Century Gothic, sans-serif;
       font-size: 30px;
@@ -49,15 +51,26 @@ body {
       border-bottom: 1px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
+      -webkit-transition: color .2s linear;
+      -moz-transition: color .2s linear;
     }
 
     a:hover {
-      background-color: #9b1c26;  /* Bloody Red */
+      /*
+      background-color: #9b1c26;
       padding-bottom: 12px;
       border-bottom: 2px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
       margin: -1px;
+      
+      color: #9b1c26;
+      */
+      span {
+        color: #386af2;
+        -webkit-transition: color .2s linear;
+        -moz-transition: color .2s linear;
+      } 
     }
   }
 
@@ -104,15 +117,20 @@ body {
       border-bottom: 1px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
+      -webkit-transition: color .2s linear;
+      -moz-transition: color .2s linear;
     }
 
     li a:hover {
+      /*
       background-color: #9b1c26;
       padding-bottom: 12px;
       border-bottom: 2px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
       margin: -1px;
+      */
+      color: #9b1c26;
     }
   }
 
@@ -154,15 +172,20 @@ body {
       border-bottom: 1px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
+      -webkit-transition: color .2s linear;
+      -moz-transition: color .2s linear;
     }
 
     li a:hover {
+      /*
       background-color: #9b1c26;
       padding-bottom: 12px;
       border-bottom: 2px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
       margin: -1px;
+      */
+      color: #9b1c26;
     }
   }
 }
@@ -172,8 +195,9 @@ body {
   top:  50%;
   left: 50%;
   margin-top: -250px;
-  margin-left:  280px;
-  
+  margin-left:  20px;
+  min-width: 500px;
+
   h2 {
     font-size: 40px;
     font-family: Century Gothic, sans-serif;
@@ -202,4 +226,8 @@ body {
       margin: 0 0 10px 0;
   }
 
+}
+
+#transparent {
+  background-color: rgba(0,0,0,0.1);
 }
