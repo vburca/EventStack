@@ -61,20 +61,96 @@ body {
     }
   }
 
-  #login {
+  #hello_message {
+    font-family: Century Gothic, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    float: right;
+    padding: 10px;
+    background-color: #333333;
+    color: #ffffff;
+    border-bottom: 1px;
+    border-bottom-color: #000000;
+    border-bottom-style: solid;
+  }
+
+  #buttons {
     padding: 0px;
+
+    .separator {
+      float: left;
+      height: 38px;
+      margin: 0 5px;
+      overflow: hidden;
+      border-right: 1px solid #9b1c26;
+      background-color: #ffff00;
+      border-bottom: 1px;
+      border-bottom-color: #000000;
+      border-bottom-style: solid;
+    }
 
     li {
       display: inline;
     }
+
     li a {
       font-family: Century Gothic, sans-serif;
-      font-size: 12px;
+      font-size: 15px;
       text-decoration: none;
-      float: right;
       padding: 10px;
+      float: left;
       background-color: #333333;
-      color: #ffffff;
+      color: #ffff00;
+      border-bottom: 1px;
+      border-bottom-color: #000000;
+      border-bottom-style: solid;
+    }
+
+    li a:hover {
+      background-color: #9b1c26;
+      padding-bottom: 12px;
+      border-bottom: 2px;
+      border-bottom-color: #000000;
+      border-bottom-style: solid;
+      margin: -1px;
+    }
+  }
+
+  #login {
+    padding: 0px;
+
+    .separator {
+      float: right;
+      height: 38px;
+      margin: 0 5px;
+      overflow: hidden;
+      border-right: 1px solid #9b1c26;
+      background-color: #ffff00;
+      border-bottom: 1px;
+      border-bottom-color: #000000;
+      border-bottom-style: solid;
+    }
+
+    li {
+      display: inline;
+    }
+/*
+    #login {
+      float: right;
+    }
+
+    #buttons {
+      float: left;
+    }
+*/
+    li a {
+      font-family: Century Gothic, sans-serif;
+      font-size: 15px;
+      text-decoration: none;
+      padding: 10px;
+      float: right;
+      background-color: #333333;
+      color: #ffff00;
       border-bottom: 1px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
