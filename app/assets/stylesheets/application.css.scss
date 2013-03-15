@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-* {
+html {
   background: url(trincoll_day_splash.jpg) no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -20,34 +20,74 @@
   background-size: cover;
 }
 
+body {
+  border: 0;
+}
 
-#user_nav {
-  width:  auto;
-  float: right;
-  margin: 0 0 5em 0;
-  height: 30px;
-  padding: 0;
-  background-color: yellow;
-  opacity: 0.7;
-  list-style: none;
+#nav {
+  height: 38px;
+  width: 100%;
+  background-color: #333333;
+  border-bottom: 1px;
+  border-bottom-color: #000000;
+  border-bottom-style: solid;
 
-  li {
-    display: block;
-    float: left;
-    color: yellow;
-    padding: 8px 10px;
-    font-weight: bold;
+  #title {
+
+    span { 
+      color: #1161bc;
+    }
+
+    a {
+      font-family: Century Gothic, sans-serif;
+      font-size: 30px;
+      text-decoration: none;
+      float: left;
+      padding: 10px;
+      background-color: #333333;
+      color: #ffff00;
+      border-bottom: 1px;
+      border-bottom-color: #000000;
+      border-bottom-style: solid;
+    }
+
+    a:hover {
+      background-color: #9b1c26;  /* Bloody Red */
+      padding-bottom: 12px;
+      border-bottom: 2px;
+      border-bottom-color: #000000;
+      border-bottom-style: solid;
+      margin: -1px;
+    }
   }
 
-  a { 
-    display: block;
-    color: yellow;
-    text-decoration: none;
-    font-weight: bold;
-  }
+  #login {
+    padding: 0px;
 
-  a:hover {
-    color: #c00;
+    li {
+      display: inline;
+    }
+    li a {
+      font-family: Century Gothic, sans-serif;
+      font-size: 12px;
+      text-decoration: none;
+      float: right;
+      padding: 10px;
+      background-color: #333333;
+      color: #ffffff;
+      border-bottom: 1px;
+      border-bottom-color: #000000;
+      border-bottom-style: solid;
+    }
+
+    li a:hover {
+      background-color: #9b1c26;
+      padding-bottom: 12px;
+      border-bottom: 2px;
+      border-bottom-color: #000000;
+      border-bottom-style: solid;
+      margin: -1px;
+    }
   }
 }
 
@@ -87,47 +127,3 @@
   }
 
 }
-
-.banner {
-  float: left;
-  margin: 0em 3em 0 1.5em;
-  font-style: italic;
-  font-size: 30px;
-  font-family: Century Gothic, sans-serif;
-
-  a {
-    display: block;
-    padding: 8px 15px;
-    text-decoration: none;
-    font-weight: bold;
-    opacity: 0.7;
-    font-size: 40px;
-    font-family: Century Gothic, sans-serif;
-  }
-
-  a:hover {
-    color: #c00;
-  }
-}
-
-/*
-.transp_box {
-  width: auto;
-  margin-left:  10px;
-  margin-top: 25px;
-  background: #ffffff;
-  filter: alpha(opacity=50);
-  -moz-opacity: 0.5;
-  opacity:  0.5;
-  -khtml-opacity: 0.5;
-
-  * {
-    position: relative;
-  }
-
-  div {
-    padding: 10px;
-    color: #000;
-  }    
-}
-*/
