@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
-    <%= f.text_field :date_of_birth %>
+    <%= f.date_select(:date_of_birth, default: { :year => 1990 }, start_year: Time.now.year - 60, end_year: Time.now.year - 10, order: [:month, :day, :year]) %>
   </div>
   <div class="field">
     <%= f.label :sex %><br />
