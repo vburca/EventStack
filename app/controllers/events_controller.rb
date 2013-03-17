@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
-  before_filter :authenticate_admin!, :except => [:index, :show]
+  before_filter :authenticate_admin!, :except => [:index, :show, :new, :create, :edit, :update]
 
   # GET /events
   # GET /events.json
@@ -38,6 +38,11 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+
+    # given event was not created by the current user
+    if (@event.creator.id != current_user.id) && (!current_user.admin?)
+      redirect_to home_path
+    end
   end
 
   # POST /events
@@ -61,6 +66,11 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
+
+    # given event was not created by the current user
+    if (@event.creator.id != current_user.id) && (!current_user.admin?)
+      redirect_to home_path
+    end
 
     respond_to do |format|
       if @event.update_attributes(params[:event])

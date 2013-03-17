@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :authenticate_admin!, :except => [:index, :show, :edit]
+  before_filter :authenticate_admin!, :except => [:index, :show, :edit, :update]
 
   # GET /users
   # GET /users.json
@@ -49,6 +49,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+
+    # check if the user is trying to edit someone else's page
+    if (@user.id != current_user.id) && (!current_user.admin?)
+      redirect_to home_path
+    end
 
     respond_to do |format|
       if @user.save
