@@ -13,10 +13,10 @@ class User < ActiveRecord::Base
                   :password, :password_confirmation
 
   # VALIDATIONS
-  validates :username, length: { maximum: 20 }
+  validates :username, length: { maximum: 20 }, presence: true, uniqueness: true
   validates :first_name, allow_blank: false, presence: true
   validates :last_name, allow_blank: false, presence: true
-  validates :email, allow_blank: false, presence: true
+  validates :email, allow_blank: false, presence: true, uniqueness: true
   # email validation -> replace this with the Mail gem later.
   validates_format_of :email, :with => /^([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})$/i
 
