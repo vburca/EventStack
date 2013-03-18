@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   # ASSOCIATIONS
-  has_many :created_events, class_name: 'Event', inverse_of: :creator
+  has_many :created_events, class_name: 'Event', inverse_of: :creator, foreign_key: :creator_id
   has_and_belongs_to_many :voted_events, class_name: 'Event', join_table: :votes, foreign_key: :voter_id, association_foreign_key: :voted_event_id
   has_and_belongs_to_many :majors
   
