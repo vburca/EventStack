@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   validates :username, length: { maximum: 20 }, presence: true, uniqueness: true
   validates :first_name, allow_blank: false, presence: true
   validates :last_name, allow_blank: false, presence: true
+  validates_inclusion_of :sex, in: %w( Male Female ), message: "can only be Male or Female"
   # email validation done through Devise
   # validates :email, allow_blank: false, presence: true
   validates_format_of :email, with: Devise.email_regexp
