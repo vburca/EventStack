@@ -16,11 +16,16 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
+    begin
+      @event = Event.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to show invalid event #{params[:id]}"
+      redirect_to events_path, notice: 'Invalid event ID'
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @event }
+      end
     end
   end
 
@@ -37,11 +42,17 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
-
-    # given event was not created by the current user
-    if (@event.creator.id != current_user.id) && (!current_user.admin?)
-      redirect_to home_path
+    begin
+      @event = Event.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to edit invalid event #{params[:id]}"
+      redirect_to events_path, notice: 'Invalid event ID'
+    else
+      # given event was not created by the current user
+      if (@event.creator.id != current_user.id) && (!current_user.admin?)
+        logger.error "Attempt to access invalid event #{params[:id]} with creator_id #{@event.creator.id} for current user_id #{current_user.id}"
+        redirect_to events_path, notice: 'You do not have permission to edit that event!'
+      end
     end
   end
 
@@ -69,7 +80,8 @@ class EventsController < ApplicationController
 
     # given event was not created by the current user
     if (@event.creator.id != current_user.id) && (!current_user.admin?)
-      redirect_to home_path
+      logger.error "Attempt to update invalid event #{params[:id]} with creator_id #{@event.creator.id} for current user_id #{current_user.id}"      
+      redirect_to events_path, notice: 'You do not have permission to update that event!'
     end
 
     respond_to do |format|
@@ -86,12 +98,23 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = Event.find(params[:id])
-    @event.destroy
+    begin
+      @event = Event.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to show invalid event #{params[:id]}"
+      redirect_to events_path, notice: 'Invalid event ID'
+    else
+      # given event was not created by the current user
+      if (@event.creator.id != current_user.id) && (!current_user.admin?)
+        logger.error "Attempt to delete invalid event #{params[:id]} with creator_id #{@event.creator.id} for current user_id #{current_user.id}"      
+        redirect_to events_path, notice: 'You do not have permission to delete that event!'
+      end
+      @event.destroy
 
-    respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to events_url }
+        format.json { head :no_content }
+      end
     end
   end
 end
