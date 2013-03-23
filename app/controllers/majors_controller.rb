@@ -17,11 +17,16 @@ class MajorsController < ApplicationController
   # GET /majors/1
   # GET /majors/1.json
   def show
-    @major = Major.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @major }
+    begin
+      @major = Major.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to show invalid major #{params[:id]}"
+      redirect_to majors_path, notice: 'Invalid major ID'
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @major }
+      end
     end
   end
 
@@ -38,7 +43,12 @@ class MajorsController < ApplicationController
 
   # GET /majors/1/edit
   def edit
-    @major = Major.find(params[:id])
+    begin
+      @major = Major.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to show invalid major #{params[:id]}"
+      redirect_to users_path, notice: 'Invalid major ID'
+    end
   end
 
   # POST /majors
@@ -60,15 +70,20 @@ class MajorsController < ApplicationController
   # PUT /majors/1
   # PUT /majors/1.json
   def update
-    @major = Major.find(params[:id])
-
-    respond_to do |format|
-      if @major.update_attributes(params[:major])
-        format.html { redirect_to @major, notice: 'Major was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @major.errors, status: :unprocessable_entity }
+    begin
+      @major = Major.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to update invalid major #{params[:id]}"
+      redirect_to majors_path, notice: 'Invalid major ID'
+    else
+      respond_to do |format|
+        if @major.update_attributes(params[:major])
+          format.html { redirect_to @major, notice: 'Major was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @major.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -76,12 +91,18 @@ class MajorsController < ApplicationController
   # DELETE /majors/1
   # DELETE /majors/1.json
   def destroy
-    @major = Major.find(params[:id])
-    @major.destroy
+    begin
+      @major = Major.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to delete invalid major #{params[:id]}"
+      redirect_to majors_path, notice: 'Invalid major ID'
+    else
+      @major.destroy
 
-    respond_to do |format|
-      format.html { redirect_to majors_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to majors_url }
+        format.json { head :no_content }
+      end
     end
   end
 end
