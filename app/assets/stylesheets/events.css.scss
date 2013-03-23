@@ -3,16 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .events {
+  background: fixed;
   background-color: rgba(255, 255, 255, 0.7);
   color: rgb(51, 51, 51);
   min-width: 900px;
+
+  border-radius: 10px;
   
-  div #event_entry {
-    color: red;
+  #event_entry {
+    #event_name {
+      padding: 5px 0 0 0;
+      text-align: center;
+      font-size: 20px;
+      a {
+        text-decoration: none;
+      }
+    } 
+    margin: 0 100px 10px 100px;
+    color: #ffff00;
+    background-color: rgba(51, 51, 51, 0.7);
+
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    box-shadow: 5px 5px 2px rgba(136, 136, 136, 0.7);
+    -moz-box-shadow: 5px 5px 2px rgba(136, 136, 136, 0.7);
   }
-}
-
-
-div #event_entry {
-  color: red;
 }

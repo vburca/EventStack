@@ -3,7 +3,7 @@
 <% end %>
 
 <h1>Listing events</h1>
-
+<!--
 <table>
   <tr>
     <th>Name</th>
@@ -19,8 +19,7 @@
   </tr>
 
 <% @events.each do |event| %>
-  <div id="event_entry">
-  <tr>
+  <tr id="event_entry">
     <td><%= event.name %></td>
     <td><%= event.description %></td>
     <td><%= event.start_datetime %></td>
@@ -34,10 +33,19 @@
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </tr>
-  </div>
 <% end %>
 </table>
+-->
 
+<% @events.each do |event| %>
+    <div id="event_entry">
+        <div id="event_name"><%= event.name %></div>
+        <div id="event_creator"><%= event.creator.username %></div>
+        <div id="event_food"><%= event.food_provided %></div>
+        <div id="event_startdate"><%= event.start_datetime %></div>
+        <div id="event_location"><%= event.location %></div>
+    </div>
+<% end %>
 <br />
 
 <%= link_to 'New Event', new_event_path %>
