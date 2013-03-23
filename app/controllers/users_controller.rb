@@ -16,11 +16,16 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+    begin
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to show invalid user #{params[:id]}"
+      redirect_to users_path, notice: 'Invalid user ID'
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @user }
+      end
     end
   end
 
@@ -37,11 +42,17 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
-
-    # check if the user is trying to edit someone else's page
-    if (@user.id != current_user.id) && (!current_user.admin?)
-      redirect_to home_path
+    begin
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to edit invalid user #{params[:id]}"
+      redirect_to users_path, notice: 'Invalid user ID'
+    else
+      # check if the user is trying to edit someone else's page
+      if (@user.id != current_user.id) && (!current_user.admin?)
+        logger.error "Attempt to edit invalid user #{params[:id]} with user_id #{@user.id} for current user_id #{current_user.id} and not admin"
+        redirect_to users_path, notice: 'You do not have permission to edit that user!'    
+      end
     end
   end
 
@@ -49,11 +60,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
-    # check if the user is trying to edit someone else's page
-    if (@user.id != current_user.id) && (!current_user.admin?)
-      redirect_to home_path
-    end
 
     respond_to do |format|
       if @user.save
@@ -69,15 +75,26 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
+    begin
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to update invalid user #{params[:id]}"
+      redirect_to users_path, notice: 'Invalid user ID'
+    else
+      # check if the user is trying to edit someone else's page
+      if (@user.id != current_user.id) && (!current_user.admin?)
+        logger.error "Attempt to update invalid user #{params[:id]} with user_id #{@user.id} for current user_id #{current_user.id} and not admin"
+        redirect_to users_path, notice: 'You do not have permission to update that user!'    
+      end
 
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @user.update_attributes(params[:user])
+          format.html { redirect_to @user, notice: 'User was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -85,12 +102,18 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    begin
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to delete invalid user #{params[:id]}"
+      redirect_to users_path, notice: 'Invalid user ID'
+    else
+      @user.destroy
 
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to users_url }
+        format.json { head :no_content }
+      end
     end
   end
 end

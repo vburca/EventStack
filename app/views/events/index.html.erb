@@ -19,6 +19,7 @@
   </tr>
 
 <% @events.each do |event| %>
+  <div id="event_entry">
   <tr>
     <td><%= event.name %></td>
     <td><%= event.description %></td>
@@ -33,6 +34,7 @@
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </tr>
+  </div>
 <% end %>
 </table>
 

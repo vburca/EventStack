@@ -9,7 +9,6 @@ html {
 
 body {
   border: 0;
-  
   font-family: Century Gothic, sans-serif;
 }
 
@@ -173,40 +172,4 @@ body {
       color: #9b1c26;
     }
   }
-}
-
-.logins { 
-  position: absolute;
-  top:  50%;
-  left: 50%;
-  margin-top: -250px;
-  margin-left:  20px;
-  min-width: 500px;
-
-  h2 {
-    font-size: 40px;
-  }
-
-  div { 
-    color: #333333;
-    font-style: italic;
-    font-size: 15px;
-  }
-
-  input {
-      border: 2px solid white; 
-      -webkit-box-shadow: 
-        inset 0 0 8px  rgba(0,0,0,0.1),
-              0 0 16px rgba(0,0,0,0.1); 
-      -moz-box-shadow: 
-        inset 0 0 8px  rgba(0,0,0,0.1),
-              0 0 16px rgba(0,0,0,0.1); 
-      box-shadow: 
-        inset 0 0 8px  rgba(0,0,0,0.1),
-              0 0 16px rgba(0,0,0,0.1); 
-      padding: 7px;
-      background: rgba(255,255,255,0.5);
-      margin: 0 0 10px 0;
-  }
-
 }

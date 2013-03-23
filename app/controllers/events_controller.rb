@@ -50,7 +50,7 @@ class EventsController < ApplicationController
     else
       # given event was not created by the current user
       if (@event.creator.id != current_user.id) && (!current_user.admin?)
-        logger.error "Attempt to access invalid event #{params[:id]} with creator_id #{@event.creator.id} for current user_id #{current_user.id}"
+        logger.error "Attempt to edit invalid event #{params[:id]} with creator_id #{@event.creator.id} for current user_id #{current_user.id}"
         redirect_to events_path, notice: 'You do not have permission to edit that event!'
       end
     end
@@ -106,7 +106,7 @@ class EventsController < ApplicationController
     else
       # given event was not created by the current user
       if (@event.creator.id != current_user.id) && (!current_user.admin?)
-        logger.error "Attempt to delete invalid event #{params[:id]} with creator_id #{@event.creator.id} for current user_id #{current_user.id}"      
+        logger.error "Attempt to delete invalid event #{params[:id]} with creator_id #{@event.creator.id} for current user_id #{current_user.id} and not admin"      
         redirect_to events_path, notice: 'You do not have permission to delete that event!'
       end
       @event.destroy
