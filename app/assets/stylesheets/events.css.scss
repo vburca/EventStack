@@ -10,22 +10,13 @@
 
   // border-radius: 10px;
 
-  #page_title {
-    padding-left: 250px;
-    font-style: italic;
-    font-size: 50px;
-    color: #ffff00;
-    text-align: left;
-  }
-
   a.new_button {
-    font-opacity: 0.8;
     font-size: 15px;
     text-decoration: none;
     padding: 10px;
     float: left;
     background-color: #333333;
-    color: #ffff00;
+    color: #ffffff;
     border-radius: 0 0 15px 15px;
     border-bottom: 1px;
     border-bottom-color: #000000;
@@ -35,7 +26,6 @@
   }
 
   a.new_button:hover {
-    opacity: 1;
     color: #9b1c26;
   }
 
