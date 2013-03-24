@@ -23,8 +23,13 @@
   */
   h1 {
     color: #ffff00;
-    opacity: 0.9;
+    opacity: 0.5;
     font-size: 40px;
+    -webkit-transition: opacity .2s linear;
+  }
+
+  h1:hover {
+    opacity: 0.9;
   }
 
   p {

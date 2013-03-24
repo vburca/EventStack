@@ -2,7 +2,11 @@
     <p id="error_notice"><%= notice %></p>
 <% end %>
 
-<h1>Listing events</h1>
+<%= link_to 'New Event', new_event_path, { class: 'new_button' } %>
+
+
+<h1 id="page_title">Listing events</h1>
+
 <!--
 <table>
   <tr>
@@ -38,6 +42,7 @@
 -->
 
 <% @events.each do |event| %>
+    <a id="event_link" href="<%= event_path(event) %>">
     <div id="event_entry">
         <div id="event_name"><%= event.name %></div>
         <div id="event_creator"><%= event.creator.username %></div>
@@ -45,7 +50,6 @@
         <div id="event_startdate"><%= event.start_datetime %></div>
         <div id="event_location"><%= event.location %></div>
     </div>
+</a>
 <% end %>
 <br />
-
-<%= link_to 'New Event', new_event_path %>

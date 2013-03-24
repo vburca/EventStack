@@ -3,7 +3,6 @@ html {
   background: url(trincoll_day_splash.jpg) no-repeat center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
 
@@ -23,11 +22,6 @@ body {
   min-width: 900px;
 
   #title {
-/*
-    span { 
-      color: #1161bc;
-    }
-*/
     a {
       font-size: 30px;
       text-decoration: none;
@@ -35,28 +29,20 @@ body {
       padding: 10px;
       background-color: #333333;
       color: #ffff00;
+      opacity: 0.5;
       border-bottom: 1px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
-      -webkit-transition: color .2s linear;
-      -moz-transition: color .2s linear;
+      -webkit-transition: opacity .3s linear;
+      -moz-transition: opacity .3s linear;
     }
 
     a:hover {
-      /*
-      background-color: #9b1c26;
-      padding-bottom: 12px;
-      border-bottom: 2px;
-      border-bottom-color: #000000;
-      border-bottom-style: solid;
-      margin: -1px;
-      
-      color: #9b1c26;
-      */
+      opacity: 0.9;
       span {
         color: #386af2;
-        -webkit-transition: color .2s linear;
-        -moz-transition: color .2s linear;
+        -webkit-transition: color .3s linear;
+        -moz-transition: color .3s linear;
       } 
     }
   }
@@ -93,6 +79,7 @@ body {
     }
 
     li a {
+      opacity: 0.8;
       font-size: 15px;
       text-decoration: none;
       padding: 10px;
@@ -102,19 +89,12 @@ body {
       border-bottom: 1px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
-      -webkit-transition: color .2s linear;
-      -moz-transition: color .2s linear;
+      -webkit-transition: all .2s linear;
+      -moz-transition: all .2s linear;
     }
 
     li a:hover {
-      /*
-      background-color: #9b1c26;
-      padding-bottom: 12px;
-      border-bottom: 2px;
-      border-bottom-color: #000000;
-      border-bottom-style: solid;
-      margin: -1px;
-      */
+      opacity: 1;
       color: #9b1c26;
     }
   }
@@ -137,16 +117,9 @@ body {
     li {
       display: inline;
     }
-/*
-    #login {
-      float: right;
-    }
 
-    #buttons {
-      float: left;
-    }
-*/
     li a {
+      opacity: 0.8;
       font-size: 15px;
       text-decoration: none;
       padding: 10px;
@@ -156,19 +129,12 @@ body {
       border-bottom: 1px;
       border-bottom-color: #000000;
       border-bottom-style: solid;
-      -webkit-transition: color .2s linear;
-      -moz-transition: color .2s linear;
+      -webkit-transition: all .2s linear;
+      -moz-transition: all .2s linear;
     }
 
     li a:hover {
-      /*
-      background-color: #9b1c26;
-      padding-bottom: 12px;
-      border-bottom: 2px;
-      border-bottom-color: #000000;
-      border-bottom-style: solid;
-      margin: -1px;
-      */
+      opacity: 1;
       color: #9b1c26;
     }
   }
