@@ -5,7 +5,7 @@
 <%= link_to 'New Event', new_event_path, class: 'new_button' %>
 
 
-<h1 class="page_title">Stuff that is going to happen!</h1>
+<h1 class="page_title"><%= @page_title %></h1>
 
 <!--
 <table>
@@ -44,11 +44,11 @@
 <% @events.each do |event| %>
     <a class="event_link" href="<%= event_path(event) %>">
     <div class="event_entry hoverable">
-        <div class="event_name"><%= event.name %></div>
-        <div class="event_creator"><%= event.creator.username %></div>
-        <div class="event_food"><%= event.food_provided %></div>
-        <div class="event_startdate"><%= event.start_datetime %></div>
-        <div class="event_location"><%= event.location %></div>
+        <div class="event_name event_detail"><%= event.name %></div>
+        <div class="event_creator event_detail"><%= event.creator.username %></div>
+        <div class="event_food event_detail"><%= event.food_provided %></div>
+        <div class="event_startdate event_detail"><%= event.start_datetime %></div>
+        <div class="event_location event_detail"><%= event.location %></div>
     </div>
     </a>
     <% if current_user.admin? %>

@@ -2,10 +2,19 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :authenticate_admin!, :except => [:index, :show, :new, :create, :edit, :update]
 
+  TITLES = [ "Here is what's going on!", "Stuff that is going to happen",
+             "Your next party is...", "Where can you eat...",
+             "Where can you meet new people...", "Were can you have fun?!",
+             "What would you want to do?!", "Here is what we can offer!",
+             "Pick your entertainment!", "Stuff you can go to",
+             "Cool events!", "Fun events to go to!" ]
+
+
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
+    @page_title = TITLES[rand(TITLES.length)]
 
     respond_to do |format|
       format.html # index.html.erb
