@@ -36,7 +36,7 @@
   <b>Events created:</b>
   <%= @user.created_events.count %>
 </p>
-
+<!--
 <% if @user.created_events.count > 0 %>
   <p>
     <b>Created Events:</b>
@@ -76,6 +76,25 @@
 
     <br />
   </p>
+<% end %>
+-->
+
+<% if @user.created_events.count > 0 %>
+  <% @user.created_events.each do |event| %>
+      <a class="event_link" href="<%= event_path(event) %>">
+      <div class="event_entry hoverable">
+          <div class="event_name"><%= event.name %></div>
+          <div class="event_creator">by <%= event.creator.username %></div>
+          <div class="event_food"><%= event.food_provided %></div>
+          <div class="event_startdate">When? <%= event.start_datetime %></div>
+          <div class="event_location">Where? <%= event.location %></div>
+      </div>
+      </a>
+      <% if current_user.admin? %>
+          <%= link_to 'Edit', edit_event_path(event), class: 'admin_button' %>
+          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?'}, class: 'admin_button' %>
+      <% end %>
+  <% end %>
 <% end %>
 
 <% if current_user.admin? || (@user.id == current_user.id) %>
