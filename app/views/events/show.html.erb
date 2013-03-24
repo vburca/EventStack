@@ -2,6 +2,7 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
+<div class="event_entry">
 <p>
   <b>Name:</b>
   <%= @event.name %>
@@ -36,7 +37,7 @@
   <b>User:</b>
   <%= @event.creator.username %>
 </p>
-
+</div>
 <% if current_user.admin? || (@event.creator.id == current_user.id) %>
   <%= link_to 'Edit', edit_event_path(@event) %> |
 <% end %>

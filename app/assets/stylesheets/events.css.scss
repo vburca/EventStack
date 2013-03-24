@@ -10,6 +10,28 @@
 
   // border-radius: 10px;
 
+  .admin_button {
+    position: relative;
+    float: right;
+    top: -7em;
+    left: -10px;
+    margin-right: 5px;
+
+    border-radius: 10px;
+    font-size: 10px;
+    text-decoration: none;
+    padding: 5px;
+    background-color: #333333;
+    color: #ffffff;
+    border-bottom: 1px;
+    border-bottom-color: #000000;
+    border-bottom-style: solid;
+  }
+
+  .admin_button:hover {
+    color: #9b1c26;
+  }
+
   a.new_button {
     font-size: 15px;
     text-decoration: none;
@@ -29,12 +51,12 @@
     color: #9b1c26;
   }
 
-  a#event_link {
+  a.event_link {
     text-decoration: none;
   }
   
-  div#event_entry {
-    #event_name {
+  div.event_entry {
+    .event_name {
       padding: 5px 0 0 0;
       text-align: center;
       font-size: 20px;
@@ -57,7 +79,7 @@
     //-webkit-transition: box-shadow .3s linear;
   }
 
-  div:hover#event_entry {
+  div:hover.hoverable.event_entry {
     //-webkit-transform:rotate(360deg);
     background-color: rgba(155, 28, 38, 0.7);
     //box-shadow: 10px 10px 5px rgba(63, 75, 246, 0.7);

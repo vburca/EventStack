@@ -2,10 +2,10 @@
     <p id="error_notice"><%= notice %></p>
 <% end %>
 
-<%= link_to 'New Event', new_event_path, { class: 'new_button' } %>
+<%= link_to 'New Event', new_event_path, class: 'new_button' %>
 
 
-<h1 id="page_title">Listing events</h1>
+<h1 class="page_title">Stuff that is going to happen!</h1>
 
 <!--
 <table>
@@ -42,14 +42,18 @@
 -->
 
 <% @events.each do |event| %>
-    <a id="event_link" href="<%= event_path(event) %>">
-    <div id="event_entry">
-        <div id="event_name"><%= event.name %></div>
-        <div id="event_creator"><%= event.creator.username %></div>
-        <div id="event_food"><%= event.food_provided %></div>
-        <div id="event_startdate"><%= event.start_datetime %></div>
-        <div id="event_location"><%= event.location %></div>
+    <a class="event_link" href="<%= event_path(event) %>">
+    <div class="event_entry hoverable">
+        <div class="event_name"><%= event.name %></div>
+        <div class="event_creator"><%= event.creator.username %></div>
+        <div class="event_food"><%= event.food_provided %></div>
+        <div class="event_startdate"><%= event.start_datetime %></div>
+        <div class="event_location"><%= event.location %></div>
     </div>
-</a>
+    </a>
+    <% if current_user.admin? %>
+        <%= link_to 'Edit', edit_event_path(event), class: 'admin_button' %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?'}, class: 'admin_button' %>
+    <% end %>
 <% end %>
 <br />
