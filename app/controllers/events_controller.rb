@@ -7,7 +7,7 @@ class EventsController < ApplicationController
              "Where can you meet new people...", "Were can you have fun?!",
              "What would you want to do?!", "Here is what we can offer!",
              "Pick your entertainment!", "Stuff you can go to",
-             "Cool events!", "Fun events to go to!" ]
+             "Cool events!", "Fun events to go to!", "Are you not entertained?!" ]
 
 
   # GET /events
