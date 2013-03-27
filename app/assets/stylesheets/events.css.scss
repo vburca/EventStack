@@ -33,6 +33,7 @@
   }
 
   a.new_button {
+    position: fixed;
     font-size: 15px;
     text-decoration: none;
     padding: 10px;
@@ -72,7 +73,6 @@
 
   span.event_detail_entry {
     display: block;
-    //margin: 0 5px 10px 0;
     width: 500px;
     margin: 15px 300px 0 300px;
     color: #ffffff;
@@ -106,7 +106,7 @@
     }
 */
     display: block;
-    //margin: 0 5px 10px 0;
+    margin: 0 5px 10px 0;
     width: 500px;
     //margin: 15px 300px 0 300px;
     color: #ffffff;
@@ -115,7 +115,7 @@
     border-radius: 15px;
     -moz-border-radius: 15px;
     //box-shadow: 5px 5px 2px rgba(136, 136, 136, 0.7);
-    -moz-box-shadow: 5px 5px 2px rgba(136, 136, 136, 0.7);
+    //-moz-box-shadow: 5px 5px 2px rgba(136, 136, 136, 0.7);
     -webkit-transition: background-color .3s linear;
     //-webkit-transition: -webkit-transform 2s;
     -moz-transition: background-color .3s linear;
