@@ -36,65 +36,9 @@
   <b>Events created:</b>
   <%= @user.created_events.count %>
 </p>
-<!--
-<% if @user.created_events.count > 0 %>
-  <p>
-    <b>Created Events:</b>
-    <br />
-
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Start datetime</th>
-        <th>End datetime</th>
-        <th>Location</th>
-        <th>Food provided</th>
-        <th>User</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-
-    <% @user.created_events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.start_datetime %></td>
-        <td><%= event.end_datetime %></td>
-        <td><%= event.location %></td>
-        <td><%= event.food_provided %></td>
-        <td><%= event.creator.username %></td>
-        <td><%= link_to 'Show', event %></td>
-        <% if current_user.admin? %>
-            <td><%= link_to 'Edit', edit_event_path(event) %></td>
-            <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-    </table>
-
-    <br />
-  </p>
-<% end %>
--->
 
 <% if @user.created_events.count > 0 %>
-  <% @user.created_events.each do |event| %>
-      <a class="event_link" href="<%= event_path(event) %>">
-      <span class="event_entry hoverable">
-          <div class="event_name"><%= event.name %></div>
-          <div class="event_creator">by <%= event.creator.username %></div>
-          <div class="event_food"><%= event.food_provided %></div>
-          <div class="event_startdate">When? <%= event.start_datetime %></div>
-          <div class="event_location">Where? <%= event.location %></div>
-      </span>
-      </a>
-      <% if current_user.admin? %>
-          <%= link_to 'Edit', edit_event_path(event), class: 'admin_button' %>
-          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?'}, class: 'admin_button' %>
-      <% end %>
-  <% end %>
+  <%= render 'events/show_events', events: @user.created_events %>
 <% end %>
 
 <% if current_user.admin? || (@user.id == current_user.id) %>

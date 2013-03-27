@@ -1,0 +1,15 @@
+<% events.each do |event| %>
+    <a class="event_link" href="<%= event_path(event) %>">
+    <span class="event_entry hoverable">
+        <div class="event_name"><%= event.name %></div>
+        <div class="event_creator">by <%= event.creator.username %></div>
+        <div class="event_food"><%= event.food_provided %></div>
+        <div class="event_startdate">When? <%= event.start_datetime %></div>
+        <div class="event_location">Where? <%= event.location %></div>
+    </span>
+    </a>
+    <% if current_user.admin? %>
+        <%= link_to 'Edit', edit_event_path(event), class: 'admin_button' %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?'}, class: 'admin_button' %>
+    <% end %>
+<% end %>
