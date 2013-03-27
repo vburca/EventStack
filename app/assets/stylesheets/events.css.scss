@@ -34,6 +34,7 @@
 
   a.new_button {
     position: fixed;
+    top: 38px;
     font-size: 15px;
     text-decoration: none;
     padding: 10px;
@@ -71,7 +72,7 @@
     min-width: 900px;
   }
 
-  span.event_detail_entry {
+  span.event_single_entry {
     display: block;
     width: 500px;
     margin: 15px 300px 0 300px;
@@ -81,6 +82,7 @@
     border-radius: 15px;
     -moz-border-radius: 15px;
   }
+ 
  
   span.event_entry {
 

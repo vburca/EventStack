@@ -7,6 +7,9 @@
 
 <h1 id="page_title"><%= @page_title %></h1>
 
+<%= render 'show_events', object: @events %>
+
+<!--
 <% @events.each do |event| %>
     <a class="event_link" href="<%= event_path(event) %>">
     <span class="event_entry hoverable">
@@ -22,4 +25,5 @@
         <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?'}, class: 'admin_button' %>
     <% end %>
 <% end %>
+-->
 <br />
