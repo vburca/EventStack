@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   attr_accessible :description, :end_datetime, :food_provided, :location, :name, :start_datetime
 
   # VALIDATIONS
-  validates :name, presence: true, allow_blank: false, length: { maximum: 100 }
+  validates :name, presence: true, allow_blank: false, length: { maximum: 40 }
   validates :description, presence: true, allow_blank: false, length: { maximum: 800 }
 
   # TODO: datetime validations

@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
-  before_filter :authenticate_admin!, :except => [:index, :show, :new, :create, :edit, :update]
 
   TITLES = [ "Here is what's going on!", "Stuff that is going to happen",
              "Your next party is...", "Where can you eat...",
@@ -107,8 +106,15 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    # check if admin
     begin
       @event = Event.find(params[:id])
+
+      # If not admin and the event is not created by the current user
+      if !current_user.admin? && (@event.creator.id != current_user.id)
+        redirect_to events_path
+      end
+
     rescue ActiveRecord::RecordNotFound
       logger.error "Attempt to show invalid event #{params[:id]}"
       redirect_to events_path, notice: 'Invalid event ID'

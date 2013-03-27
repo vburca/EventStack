@@ -8,7 +8,7 @@
         <div class="event_location">Where? <%= event.location %></div>
     </span>
     </a>
-    <% if current_user.admin? %>
+    <% if current_user.admin? || moderate %>
         <%= link_to 'Edit', edit_event_path(event), class: 'admin_button' %>
         <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?'}, class: 'admin_button' %>
     <% end %>

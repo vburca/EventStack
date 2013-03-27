@@ -3,7 +3,7 @@
 <% end %>
 
 <h2 id="page_title"><%= @event.name %></h2>
-<h3 id="event_details_creator"><span id="by_element">by</span> <%= @event.creator.username %></h3>
+<h3 id="event_creator_title"><span id="by_element">by</span> <%= @event.creator.username %></h3>
 
 <span class="event_single_entry">
   <p>
@@ -34,5 +34,6 @@
 
 <% if current_user.admin? || (@event.creator.id == current_user.id) %>
   <%= link_to 'Edit', edit_event_path(@event), class: 'admin_button' %>
+  <%= link_to 'Delete', @event, method: :delete, data: 'Are you sure?', class: 'admin_button' %>
 <% end %>
 <%= link_to 'Back', events_path, class: 'admin_button' %>

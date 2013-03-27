@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     
     def authenticate_admin!
       if !current_user.admin?
-        redirect_to home_path
+        redirect_to events_path
     end
   end
 end
