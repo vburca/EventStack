@@ -8,43 +8,37 @@
 </head>
 <body class='<%= controller.controller_name %>'>
 
-    <div id="nav">
-      <div id="title">
-        <%= link_to root_path do %>
-          <span>Event</span>Stack
-        <% end %>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "EventStack", root_path, class: 'brand' %>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class=<%= controller.controller_name.capitalize == "Events" ? "active" : "" %>>
+              <%= link_to "Events", events_path %>
+            </li>
+            <li class=<%= controller.controller_name.capitalize == "Users" ? "active" : "" %>>
+              <%= link_to "Users", users_path %>
+            </li>
+            <% if current_user.admin? %>
+              <li class=<%= controller.controller_name.capitalize == "Majors" ? "active" : "" %>>
+                <%= link_to "Majors", majors_path %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-
-      <% if user_signed_in? %>
-        <ul id="buttons">
-          <li class="separator"></li>
-          <li> <%= link_to "Events", events_path %> </li>
-          <li class="separator"></li>
-          <li> <%= link_to "Users", users_path %> </li>
-          <% if current_user.admin? %>
-            <li class="separator"></li>
-            <li> <%= link_to "Majors", majors_path %> </li>
-          <% end %>
-        </ul>
-      <% end %>
-
-      <ul id="login">
-        <% if user_signed_in? %>
-          <li> <%= link_to "Sign Out", destroy_user_session_path %> </li>
-          <li class="separator"></li>
-          <li> <%= link_to "#{current_user.first_name}", user_path(current_user.id) %> </li>
-          <li id="hello_message"> Hi there, </li>
-        <% else %>
-          <li> <%= link_to "Want to join?", new_user_registration_path %> </li>
-          <li class="separator"></li>
-          <li> <%= link_to "Come on in!", new_user_session_path %> </li>
-        <% end %>
-      </ul>
     </div>
-    <div id="top_separator">
-    </div>
-
-<%= yield %>
+  </div>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
