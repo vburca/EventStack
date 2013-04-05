@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   TITLES = [ "Here is what's going on!", "Stuff that is going to happen",
              "Your next party is...", "Where can you eat...",
-             "Where can you meet new people...", "Were can you have fun?!",
+             "Where can you meet new people...", "Where can you have fun?!",
              "What would you want to do?!", "Here is what we can offer!",
              "Pick your entertainment!", "Stuff you can go to",
              "Cool events!", "Fun events to go to!", "Are you not entertained?!" ]

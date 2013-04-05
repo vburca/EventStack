@@ -38,7 +38,11 @@
 </p>
 
 <% if @user.created_events.count > 0 %>
-  <%= render 'events/show_events', events: @user.created_events, moderate: true %>
+  <% if @user.id == current_user.id %>
+    <%= render 'events/show_events', events: @user.created_events, moderate: true %>
+  <% else %>
+      <%= render 'events/show_events', events: @user.created_events, moderate: false %>
+  <% end %>
 <% end %>
 
 <% if current_user.admin? || (@user.id == current_user.id) %>
