@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     # Also, might want to throw a flash message? Saying that it is only for admins? Or maybe not...
     
     def authenticate_admin!
-      if !current_user.admin?
+      if current_user and !current_user.admin?
         redirect_to events_path
     end
   end

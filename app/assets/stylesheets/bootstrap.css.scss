@@ -8,6 +8,13 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
+
+$global-font: 'Open Sans', sans-serif;
+$brand-font: 'Open Sans', sans-serif;
+
 .clearfix {
   *zoom: 1;
 }
@@ -66,6 +73,12 @@ audio:not([controls]) {
 }
 
 html {
+  // background: url(trincoll_day_splash.jpg) no-repeat center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
@@ -222,8 +235,13 @@ textarea {
 }
 
 body {
+  position: absolute;
+
+  padding-top: 60px;
+  padding-bottom: 40px;
+
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $global-font;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -4358,6 +4376,7 @@ input[type="submit"].btn.btn-mini {
   *z-index: 2;
   margin-bottom: 20px;
   overflow: visible;
+  min-width: 900px;
 }
 
 .navbar-inner {
@@ -4419,6 +4438,11 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-text {
+
+  float: none;
+  padding-left: 5px;
+  padding-right: 5px;
+
   margin-bottom: 0;
   line-height: 40px;
   color: #777777;
@@ -4807,11 +4831,30 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inverse .brand {
-  color: #999999;
+  font-family: $brand-font;
+  color: rgba(255,255,0,.5);
+  text-shadow: 0 0 1px rgba(255,255,0,.1), 0 0 30px rgba(255,255,0,.125);
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+
+.navbar-inverse .brand:hover,
+.navbar-inverse .brand:focus {
+  color: #ffff00;
+  
+  span:hover,
+  span:focus {
+    color: #386af2;
+    -webkit-transition: all .2s linear;
+       -moz-transition: all .2s linear;
+            transition: all .2s linear;
+}
+  //text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
 }
 
 .navbar-inverse .navbar-text {
-  color: #999999;
+  color: #ffffff;
 }
 
 .navbar-inverse .nav > li > a:focus,
@@ -4913,7 +4956,7 @@ input[type="submit"].btn.btn-mini {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#151515), to(#040404));
   background-image: -webkit-linear-gradient(top, #151515, #040404);
   background-image: -o-linear-gradient(top, #151515, #040404);
-  background-image: linear-gradient(to bottom, #151515, #040404);
+  background-image: linear-gradient(to bottom, #222222, #ffffff 500%);
   background-repeat: repeat-x;
   border-color: #040404 #040404 #000000;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);

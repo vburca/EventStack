@@ -2,7 +2,9 @@
     <p id="error_notice"><%= notice %></p>
 <% end %>
 
-<%= link_to 'New Event', new_event_path, class: 'new_button' %>
+<% if current_user %>
+  <%= link_to 'New Event', new_event_path, class: 'new_button' %>
+<% end %>
 
 
 <h1 id="page_title"><%= @page_title %></h1>

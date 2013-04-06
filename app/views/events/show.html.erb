@@ -32,7 +32,7 @@
   </p>
 </span>
 
-<% if current_user.admin? || (@event.creator.id == current_user.id) %>
+<% if (current_user and current_user.admin?) || (@event.creator.id == current_user.id) %>
   <%= link_to 'Edit', edit_event_path(@event), class: 'admin_button' %>
   <%= link_to 'Delete', @event, method: :delete, data: 'Are you sure?', class: 'admin_button' %>
 <% end %>

@@ -1,14 +1,14 @@
 body > .navbar {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 /* Change the docs' brand */
 body > .navbar .brand {
-  padding-right: 0;
-  padding-left: 0;
+  // padding-right: 0;
+  // padding-left: 0;
   margin-left: 20px;
   font-weight: bold;
-  color: rgba(255,255,0,.5);
+  color: rgba(155,28,38,.5);
   text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
   -webkit-transition: all .2s linear;
      -moz-transition: all .2s linear;
