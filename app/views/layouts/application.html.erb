@@ -50,14 +50,14 @@
                 <%= link_to "Sign Out", destroy_user_session_path %>
               </li>
             <% else %>
-              <li class="">
+              <li>
                 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "navbar-form"}) do |f|%>
                   <%= f.email_field :email, :autofocus => true, :class => "span2", :placeholder => "Email" %>
                   <%= f.password_field :password, :class => "span2", :placeholder => "Password" %>
                   <%= f.submit "Come on in!", :class => "btn" %>
                 <% end %>
               </li>
-              <li class="">
+              <li>
                 <%= link_to "Want to join?", new_user_registration_path %>
               </li>
             <% end %>
