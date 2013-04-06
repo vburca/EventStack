@@ -26,7 +26,7 @@
         <% end %>
         <div class="nav-collapse collapse" style="height: 0px">
           <ul class="nav">
-            <li <%= "class= 'active'" if controller.controller_name.capitalize == "Events" %>>
+            <li class=<%= controller.controller_name.capitalize == "Events" ? "active" : "" %>>
               <%= link_to "Events", events_path %>
             </li>
             <li class=<%= controller.controller_name.capitalize == "Users" ? "active" : "" %>>
@@ -41,10 +41,14 @@
 
           <ul class="nav pull-right">
             <% if user_signed_in? %>
-              <p class="navbar-text">
-                Hi there, <%= link_to "#{current_user.first_name}", user_path(current_user.id), :class => "navbar-link" %>
+              <li>
+                <p class="navbar-text">
+                  <span class="">Hi there,</span> <%= link_to "#{current_user.first_name}", user_path(current_user.id) %>
+                </p>
+              </li>
+              <li>
                 <%= link_to "Sign Out", destroy_user_session_path %>
-              </p>
+              </li>
             <% else %>
               <li class="">
                 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "navbar-form"}) do |f|%>
