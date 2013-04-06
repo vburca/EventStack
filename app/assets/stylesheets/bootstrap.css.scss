@@ -4843,8 +4843,9 @@ input[type="submit"].btn.btn-mini {
 .navbar-inverse .brand:focus {
   color: #ffff00;
   
-  span:hover,
-  span:focus {
+  .trinity,
+  .trinity:hover,
+  .trinity:focus {
     color: #386af2;
     -webkit-transition: all .2s linear;
        -moz-transition: all .2s linear;
