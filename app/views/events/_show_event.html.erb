@@ -1,0 +1,57 @@
+<% if !details %>
+<a class="event_link" href="<%= event_path(event) %>">
+<% end %>
+
+<% if details %>
+<span class= "event_single_entry">
+<% else %>
+<span class= "event_entry hover hoverable">
+<% end %>
+
+  <% if !details %>
+    <p class= "event_name"> 
+      <%= event.name %>
+    </p>
+  <% end %>
+
+  <% if details %>
+  <p>
+    <b>Description:</b>
+    <%= event.description %>
+  </p>
+  <% end %>
+
+  <p>
+    <b>Start datetime:</b>
+    <%= event.start_datetime %>
+  </p>
+
+  <% if details %>
+  <p>
+    <b>End datetime:</b>
+    <%= event.end_datetime %>
+  </p>
+  <% end %>
+
+  <p>
+    <b>Location:</b>
+    <%= event.location %>
+  </p>
+
+  <p>
+    <b>Food provided:</b>
+    <%= event.food_provided %>
+  </p>
+
+  <% if current_user %>
+    <% if current_user.admin? || (event.creator.id == current_user.id) %>
+      <%= link_to content_tag(:i, "", class: "icon-pencil icon-white"), edit_event_path(event), class: 'btn btn-search remove_fields' %>
+      <%= link_to content_tag(:i, "", class: "icon-trash icon-white"), event, method: :delete, data: { confirm: 'Are you sure you want to delete this event?'}, class: 'btn btn-danger remove_fields' %>
+    <% end %>
+  <% end %>
+  <%= link_to 'Back', events_path, class: 'btn btn-inverse remove_fields' %>
+</span>
+
+<% if !details %>
+</a>
+<% end %>
