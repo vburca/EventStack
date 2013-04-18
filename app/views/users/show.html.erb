@@ -39,9 +39,9 @@
 
 <% if @user.created_events.count > 0 %>
   <% if @user.id == current_user.id %>
-    <%= render 'events/show_events', events: @user.created_events, moderate: true %>
+    <%= render 'events/show_events', events: @user.created_events %>
   <% else %>
-      <%= render 'events/show_events', events: @user.created_events, moderate: false %>
+      <%= render 'events/show_events', events: @user.created_events %>
   <% end %>
 <% end %>
 
