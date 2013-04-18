@@ -6,10 +6,12 @@
         <div class="event_food"><%= event.food_provided %></div>
         <div class="event_startdate">When? <%= event.start_datetime %></div>
         <div class="event_location">Where? <%= event.location %></div>
+        <div class="admin_buttons">
+            <% if (current_user and current_user.admin?) || moderate %>
+                <%= link_to content_tag(:i, "", class: "icon-pencil icon-white"), edit_event_path(event), class: 'btn remove_fields' %>
+                <%= link_to content_tag(:i, "", class: "icon-trash icon-white"), event, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger remove_fields' %>
+            <% end %>
+        </div>
     </span>
     </a>
-    <% if (current_user and current_user.admin?) || moderate %>
-        <%= link_to 'Edit', edit_event_path(event), class: 'admin_button' %>
-        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?'}, class: 'admin_button' %>
-    <% end %>
 <% end %>
