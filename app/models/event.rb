@@ -3,11 +3,21 @@ class Event < ActiveRecord::Base
   searchable do 
     text :name, :boost => 5
     text :description, :location
-    text :start_date
+    text :start_date, :when_tokenizer
   end
 
   def start_date
     start_datetime.strftime("%a %A %d %B %Y") + " " + start_datetime.to_date.to_s
+  end
+
+  def when_tokenizer
+    WEEKEND = ["Fri", "Sat", "Sun"]
+
+    when_token = ""
+    
+    when_token += "today " if start_datetime.to_date == Date.today
+    when_token += "tomorrow " if start_datetime.to_date + 1 == Date.tomorrow
+    when_token += "weekend "  if WEEKEND.include? start_datetime.strftime("%a")
   end
 
   # ASSOCIATIONS
