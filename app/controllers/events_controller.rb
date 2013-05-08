@@ -40,14 +40,22 @@ class EventsController < ApplicationController
   # GET /search
   # GET /search.json
   def search
+    date = nil
+    date = Date.strptime(params[:date], '%m/%d/%Y') if params[:date] != ""
+
     search =  Event.search do
-                fulltext params[:search_text] do
-                  boost_fields :name => 2.0
-                end
+                fulltext params[:search_text] if params[:search_text]
+                fulltext date if date
               end
 
     @events = search.results
-    @page_title = "Search Results for '#{params[:search_text]}'"
+    if @events.count > 0
+      @page_title = "Search Results for "
+      @page_title += "'#{params[:search_text]}'" if params[:search_text] != ""
+      @page_title += "'#{params[:date]}'" if params[:date] != ""
+    else
+      @page_title = "Sorry, no events were found!"
+    end
 
     respond_to do |format|
       format.html { render :action => :index }

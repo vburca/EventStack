@@ -1,8 +1,13 @@
 class Event < ActiveRecord::Base
 
   searchable do 
-    text :name, :description, :location
-    time :start_datetime, :end_datetime
+    text :name, :boost => 5
+    text :description, :location
+    text :start_day
+  end
+
+  def start_day
+    start_datetime.to_date
   end
 
   # ASSOCIATIONS

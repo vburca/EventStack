@@ -45,7 +45,8 @@
   <% end %>
 <% end %>
 
+<br><br>
 <% if (current_user and current_user.admin?) || (@user.id == current_user.id) %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to content_tag(:i, " Edit User", class: "icon-pencil"), edit_user_path(@user), class: 'btn btn-search remove_fields' %>
 <% end %>
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path, class: 'btn btn-inverse remove_fields' %>

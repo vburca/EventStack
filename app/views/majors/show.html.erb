@@ -7,6 +7,5 @@
   <%= @major.name %>
 </p>
 
-
-<%= link_to 'Edit', edit_major_path(@major) %> |
-<%= link_to 'Back', majors_path %>
+<%= link_to content_tag(:i, " Edit Major", class: "icon-pencil"), edit_major_path(@major), class: 'btn btn-search remove_fields' %>
+<%= link_to 'Back', majors_path, class: 'btn btn-inverse remove_fields' %>

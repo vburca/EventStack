@@ -1,3 +1,3 @@
 $(function() {
-  $("#datepicker").datepicker({minDate: 0});
+  $("#datepicker").datepicker();
 });
