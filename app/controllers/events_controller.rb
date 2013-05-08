@@ -37,6 +37,24 @@ class EventsController < ApplicationController
     end
   end
 
+  # GET /search
+  # GET /search.json
+  def search
+    search =  Event.search do
+                fulltext params[:search_text] do
+                  boost_fields :name => 2.0
+                end
+              end
+
+    @events = search.results
+    @page_title = "Search Results for '#{params[:search_text]}'"
+
+    respond_to do |format|
+      format.html { render :action => :index }
+      format.json { render json: @events }
+    end
+  end
+
   # GET /events/new
   # GET /events/new.json
   def new

@@ -4,12 +4,16 @@
 </div>
 
 <div class="search-area">
-  <form action="" id="search-form" class="custom show-search-options position-left">
+  <!-- <form action="/events/search" id="search-form" class="custom show-search-options position-left"> -->
+  <%= form_tag({:controller => :events, :action => :search}, :method => :get, :id => "search-form", 
+                :class => "custom show-search-options position-left") do %>
     <div class="input-wrapper transparent">
-      <input type="text" class="location" autocomplete="off" id="name" name="name" placeholder="Search events...">
+      <!-- <input type="text" class="location" autocomplete="off" id="name" name="search_text" placeholder="Search events..."> -->
+      <%= text_field_tag(:search_text, nil, { :placeholder => "Search events...", :class => "location", :id => "name" }) %>
     </div>
     <div class="input-wrapper" id="date-wraper">
-      <input type="text" class="date search-option ui-datapicker-target" id="datepicker" name="date" placeholder="Date">
+      <!-- <input type="text" class="date search-option ui-datapicker-target" id="datepicker" name="date" placeholder="Date"> -->
+      <%= text_field_tag(:date, nil, { :placeholder => "Date", :class => "date search-option ui-datapicker-target", :id => "datepicker" }) %>
       <span class="date-icon"></span>
     </div>
 
@@ -17,5 +21,6 @@
       <i class="icon-search"></i>
         Search
     </button>
-  </form>
+  <% end %>
+  <!-- </form> -->
 </div>

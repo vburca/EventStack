@@ -2,7 +2,16 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<h2 id="page_title"><%= @event.name %></h2>
-<h3 id="event_creator_title"><span id="by_element">by</span> <%= @event.creator.username %></h3>
-
+<table class= "title_table">
+  <col width="700">
+  <tr>
+    <td> 
+      <h2 id="page_title"><%= @event.name %></h2>
+      <h3 id="event_creator_title"><span id="by_element">by</span> <%= @event.creator.username %></h3>
+    </td>
+    <td> 
+      <i class= "icon-food icon-3x <%= @event.food_provided ? 'icon-green' : 'icon-red' %>"></i>
+    </td>
+  </tr>
+</table>
 <%= render 'show_event', event: @event, details: true %>
