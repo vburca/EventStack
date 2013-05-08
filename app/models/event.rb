@@ -16,13 +16,14 @@ class Event < ActiveRecord::Base
     when_token = ""
     
     when_token += "today " if start_datetime.to_date == Date.today
-    when_token += "tomorrow " if start_datetime.to_date + 1 == Date.tomorrow
+    when_token += "tomorrow " if start_datetime.to_date == Date.tomorrow
     when_token += "weekend "  if weekend.include? start_datetime.strftime("%a") and 
                                   start_datetime.to_date > Date.today
+    when_token
   end
 
   def has_food
-    "food" if food_provided
+    "food" if food_provided == true
   end
 
   # ASSOCIATIONS
