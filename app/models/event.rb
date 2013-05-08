@@ -11,13 +11,14 @@ class Event < ActiveRecord::Base
   end
 
   def when_tokenizer
-    WEEKEND = ["Fri", "Sat", "Sun"]
+    weekend = ["Fri", "Sat", "Sun"]
 
     when_token = ""
     
     when_token += "today " if start_datetime.to_date == Date.today
     when_token += "tomorrow " if start_datetime.to_date + 1 == Date.tomorrow
-    when_token += "weekend "  if WEEKEND.include? start_datetime.strftime("%a")
+    when_token += "weekend "  if weekend.include? start_datetime.strftime("%a") and 
+                                  start_datetime.to_date > Date.today
   end
 
   # ASSOCIATIONS
