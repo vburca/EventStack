@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   searchable do 
     text :name, :boost => 5
     text :description, :location
-    text :start_date, :when_tokenizer
+    text :start_date, :when_tokenizer, :has_food
   end
 
   def start_date
@@ -19,6 +19,10 @@ class Event < ActiveRecord::Base
     when_token += "tomorrow " if start_datetime.to_date + 1 == Date.tomorrow
     when_token += "weekend "  if weekend.include? start_datetime.strftime("%a") and 
                                   start_datetime.to_date > Date.today
+  end
+
+  def has_food
+    "food" if food_provided
   end
 
   # ASSOCIATIONS
