@@ -3,11 +3,11 @@ class Event < ActiveRecord::Base
   searchable do 
     text :name, :boost => 5
     text :description, :location
-    text :start_day
+    text :start_date
   end
 
-  def start_day
-    start_datetime.to_date
+  def start_date
+    start_datetime.strftime("%a %A %d %B %Y") + " " + start_datetime.to_date.to_s
   end
 
   # ASSOCIATIONS
